@@ -1,0 +1,165 @@
+/* reset */
+
+html {
+	box-sizing: border-box;
+	font-size: 16px;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	font-size: 16px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-left: 10vw;
+	margin-right: 10vw;
+}
+
+/* page header */
+h1 {
+	font-size: 2em;
+}
+
+/* tree structure styles */
+ol {
+	padding: 0 0 0 3vw;
+}
+
+ol.top-tree {
+	padding: 0;
+}
+
+.top-tree h2 {
+	font-size: 1.5em;
+	line-height: 100%;
+	position: relative
+}
+.top-tree h2::after {
+	background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NTEuODQ3IDQ1MS44NDciPgogIDxwYXRoIGQ9Ik0yMjUuOTIzIDM1NC43MDZjLTguMDk4IDAtMTYuMTk1LTMuMDkyLTIyLjM3LTkuMjYzTDkuMjcgMTUxLjE1N2MtMTIuMzYtMTIuMzYtMTIuMzYtMzIuMzk3IDAtNDQuNzUgMTIuMzU0LTEyLjM1NSAzMi4zODgtMTIuMzU1IDQ0Ljc0OCAwTDIyNS45MjMgMjc4LjMyIDM5Ny44MyAxMDYuNDEzYzEyLjM1OC0xMi4zNTQgMzIuMzktMTIuMzU0IDQ0Ljc0MyAwIDEyLjM2NSAxMi4zNTQgMTIuMzY1IDMyLjM5MiAwIDQ0Ljc1TDI0OC4yOTMgMzQ1LjQ1Yy02LjE3OCA2LjE3LTE0LjI3NSA5LjI1Ni0yMi4zNyA5LjI1NnoiLz4KPC9zdmc+");
+    content: "";
+    width: 1em;
+    height: 1em;
+    position: absolute;
+	right: 1em;
+    transform: rotate(-90deg);
+    transition: transform .3s;
+}
+
+.top-tree li {
+	position: relative;
+	list-style: none;
+}
+
+.top-tree li input {
+	display: none;
+}
+
+.top-tree li label {
+	cursor: pointer;
+	display: block;
+}
+
+.top-tree li input~ol>li {
+	display: none;
+}
+
+.top-tree li input:checked~ol>li {
+	display: block;
+}
+.top-tree li input:checked~label h2::after{
+	transform: rotate(0deg);
+}
+
+.top-tree li.leaf input~label h2::after{
+	display: none;
+}
+
+.top-tree li input:checked+ol>li:last-child {
+	/*margin-bottom: 20px;*/
+}
+
+/* styling basdge */
+
+.badge-row {
+  font-size: 0.8em;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+.badge-row > div {
+  border-radius: .3em;
+  border: none;
+  background-color: mediumpurple;
+  color: white;
+  padding: 0.5em 1em;
+  margin-right: 1em;
+  min-width: 5em;
+  text-align: center;
+  display: inline-block;
+}
+
+.badge-row .market {
+	background-color: darkorange;
+}
+
+/* styling */
+
+.top-tree li {
+	border-left: 3px solid slategray;
+	padding-left: 1em;
+}
+
+
+/* styling toggle all switch */
+
+/* The switch - the box around the slider */
+.switch {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .3s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
