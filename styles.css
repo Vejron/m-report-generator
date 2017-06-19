@@ -175,3 +175,25 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
+
+/* print rules */
+
+@media print {
+	section {
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		/* shrink everything a bit to fit on page */
+		font-size: 13px;
+		background-color: white;
+	}
+	.slider {
+		display: none;
+	}
+	.badge-row > div {
+		background-color: white;
+		color: black;
+		border: 2px solid #ccc;
+	}
+}
